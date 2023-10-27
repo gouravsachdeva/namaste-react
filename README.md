@@ -58,3 +58,8 @@ import {Component} from "path";
 
 - useState() - Superpowerful state variable in react
 - useEffect()
+
+# 2 Types of routing
+
+- Client Side Routing : react is doing client side routing, We are not making any call to the network.
+- Server Side Routing : If we have to fetch some page it will make a call over the network and it will fetch the page and reload our app again.
