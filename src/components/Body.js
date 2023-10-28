@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   //Local State Variable - Super Powerful variable - Whenever state variables update react triggers reconciliation cycle (re-render the component)
@@ -30,6 +31,13 @@ const Body = () => {
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
+
+  const onLineStatus = useOnlineStatus();
+
+  if (onLineStatus === false)
+    return (
+      <h1>Looks like you are offline... please check your intertent status.</h1>
+    );
 
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
