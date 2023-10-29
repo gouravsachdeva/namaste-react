@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -8,6 +8,7 @@ import Error from "./components/Error";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Shimmer from "./components/Shimmer";
+import UserContext from "./utils/UserContext";
 // import Grocery from "./components/Grocery";
 
 // not using keys (not acceptable) <<<<<<<< Index as a key <<<<<<<<< unique id (best practice)
@@ -20,11 +21,22 @@ import Shimmer from "./components/Shimmer";
 const Grocery = lazy(() => import("./components/Grocery"));
 
 const AppLayout = () => {
+  const [userName, setUserName] = useState();
+
+  //authentication
+  useEffect(() => {
+    const data = {
+      name: "Gourav Sachdeva",
+    };
+    setUserName(data.name);
+  }, []);
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-    </div>
+    <UserContext.Provider value={{ loggedInUser: userName }}>
+      <div className="app">
+        <Header />
+        <Outlet />
+      </div>
+    </UserContext.Provider>
   );
 };
 
