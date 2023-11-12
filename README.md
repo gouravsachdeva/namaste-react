@@ -63,3 +63,12 @@ import {Component} from "path";
 
 - Client Side Routing : react is doing client side routing, We are not making any call to the network.
 - Server Side Routing : If we have to fetch some page it will make a call over the network and it will fetch the page and reload our app again.
+
+# Redux Toolkit
+
+- Install @reduxjs/toolkit & react-redux
+- Build our store
+- Connect our store to our app
+- Slice (cartSlice)
+- dispatch (action)
+- Selector

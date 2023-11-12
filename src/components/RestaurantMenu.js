@@ -49,7 +49,7 @@ const RestaurantMenu = () => {
         return (
           //controller component
           <RestaurantCategory
-            key={category.card.card.id}
+            key={category.card.card.title}
             data={category?.card?.card}
             showItems={index === showIndex ? true : false}
             setShowIndex={() => setShowIndex(index)}
